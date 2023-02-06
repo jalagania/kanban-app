@@ -1,8 +1,17 @@
 .board-container {
   height: calc(100vh - 90px);
+  padding: 2.4rem;
   background-color: var(--grayL-grayD);
+  overflow: scroll;
 
   grid-area: 2 / 2;
+}
+
+.board-columns-box {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 28rem;
+  column-gap: 2.4rem;
 }
 
 .empty-board-box {

@@ -21,7 +21,6 @@ function Header() {
         !event.target.closest(".btn-ellipsis") &&
         !event.target.closest(".edit-board-menu")
       ) {
-        console.log(event.target);
         setShowMenu(false);
       }
     }

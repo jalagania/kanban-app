@@ -1,0 +1,55 @@
+.column-name {
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+}
+
+.column-name .ball {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  border-radius: 50%;
+  margin-bottom: -0.3rem;
+  margin-right: 1.2rem;
+}
+
+.ball.todo,
+.ball.now {
+  background-color: #49c4e5;
+}
+
+.ball.doing,
+.ball.next {
+  background-color: #8471f2;
+}
+
+.ball.done,
+.ball.later {
+  background-color: #67e2ae;
+}
+
+.tasks-container {
+  margin-top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.task-box {
+  width: 100%;
+  padding: 2.4rem 1.6rem;
+  background-color: var(--white-gray);
+  box-shadow: 0 4px 6px rgba(54, 78, 126, 0.101545);
+  border-radius: 0.8rem;
+}
+
+.task-title {
+  color: var(--black-white);
+}
+
+.subtask-amount-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gray);
+  margin-top: 0.8rem;
+}

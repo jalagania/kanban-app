@@ -34,7 +34,7 @@ function Sidebar() {
     <div className="sidebar-container">
       <div className={`sidebar-body ${sidebarHidden ? "hidden" : ""}`}>
         <div className="boards-container">
-          <p className="all-boards-text">All boards ({appData.length})</p>
+          <h4 className="all-boards-text">All boards ({appData.length})</h4>
           <div className="boards-box">
             {appData.map((board, index) => {
               return (

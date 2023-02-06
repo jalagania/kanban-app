@@ -1,10 +1,24 @@
 .board-container {
-  height: calc(100vh - 90px);
+  height: calc(100vh - 91px);
   padding: 2.4rem;
   background-color: var(--grayL-grayD);
-  overflow: scroll;
+  overflow: auto;
 
   grid-area: 2 / 2;
+}
+
+.board-container::-webkit-scrollbar {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.board-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.board-container::-webkit-scrollbar-thumb {
+  background-color: var(--purple);
+  border-radius: 1rem;
 }
 
 .board-columns-box {

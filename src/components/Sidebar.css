@@ -5,7 +5,7 @@
 }
 
 .sidebar-body {
-  height: calc(100vh - 90px);
+  height: calc(100vh - 91px);
   display: flex;
   flex-direction: column;
 }

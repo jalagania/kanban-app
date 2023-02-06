@@ -11,6 +11,7 @@
 .logo-box {
   padding: 3.2rem;
   flex-shrink: 0;
+  border-bottom: 1px solid transparent;
 }
 
 .logo-mobile {

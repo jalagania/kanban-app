@@ -1,0 +1,30 @@
+.board-container {
+  height: calc(100vh - 90px);
+  background-color: var(--grayL-grayD);
+
+  grid-area: 2 / 2;
+}
+
+.empty-board-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+.empty-board-box p {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gray);
+}
+
+.btn-add-new-column {
+  padding: 1.4rem 1.8rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  background-color: var(--purple);
+  border-radius: 2.4rem;
+}

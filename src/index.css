@@ -7,12 +7,13 @@
   --red-hover: #ff9898;
   --purple25: rgba(99, 95, 199, 0.25);
   --gray: #828fa3;
-  --lines: #e4ebfa;
   --black-white: #000112;
   --purple10-white: rgba(99, 95, 199, 0.1);
   --purple25-white: rgba(99, 95, 199, 0.25);
   --white-gray: white;
+  --white-grayD: white;
   --grayL-grayD: #f4f7fd;
+  --lines: #e4ebfa;
 }
 
 .dark-mode {
@@ -20,7 +21,9 @@
   --purple10-white: white;
   --purple25-white: white;
   --white-gray: #2b2c37;
+  --white-grayD: #20212c;
   --grayL-grayD: #20212c;
+  --lines: #3e3f4e;
 }
 
 *,

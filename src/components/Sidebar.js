@@ -7,15 +7,20 @@ import iconBoard from "../assets/icon-board.svg";
 import sun from "../assets/icon-light-theme.svg";
 import moon from "../assets/icon-dark-theme.svg";
 import hideSidebar from "../assets/icon-hide-sidebar.svg";
-import { useSelector } from "react-redux";
+import showSidebar from "../assets/icon-show-sidebar.svg";
+import { useDispatch, useSelector } from "react-redux";
+import dataSlice from "../store/dataSlice";
 
 function Sidebar() {
+  const dispatch = useDispatch();
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarHidden, setSidebarHidden] = useState(false);
 
   document.body.className = darkMode ? "dark-mode" : "";
 
   const { appData } = useSelector((store) => store.data);
+  const { selectedBoard } = useSelector((store) => store.data);
+  const { setSelectedBoard } = dataSlice.actions;
 
   function handleThemeChange() {
     setDarkMode(!darkMode);
@@ -25,9 +30,13 @@ function Sidebar() {
     setSidebarHidden(true);
   }
 
+  function handleShowSidebar() {
+    setSidebarHidden(false);
+  }
+
   return (
     <div className="sidebar-container">
-      <div className="logo-box">
+      <div className={`logo-box ${sidebarHidden ? "logo-border" : ""}`}>
         <img
           src={logoLight}
           alt="logo"
@@ -46,7 +55,13 @@ function Sidebar() {
           <div className="boards-box">
             {appData.map((board, index) => {
               return (
-                <button key={index} className="btn-board">
+                <button
+                  key={index}
+                  className={`btn-board ${
+                    selectedBoard === board.name ? "selected" : ""
+                  }`}
+                  onClick={() => dispatch(setSelectedBoard(board.name))}
+                >
                   <img
                     src={iconBoard}
                     alt="board icon"
@@ -80,6 +95,12 @@ function Sidebar() {
           <p className="hide-sidebar-text">Hide Sidebar</p>
         </button>
       </div>
+      <button
+        className={`btn-show-sidebar ${sidebarHidden ? "" : "hidden"}`}
+        onClick={handleShowSidebar}
+      >
+        <img src={showSidebar} alt="show sidebar icon" />
+      </button>
     </div>
   );
 }

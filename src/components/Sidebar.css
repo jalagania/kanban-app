@@ -11,6 +11,10 @@
   display: none;
 }
 
+.logo-border {
+  border-bottom: 1px solid var(--lines);
+}
+
 .sidebar-body {
   height: calc(100vh - 90px);
   display: flex;
@@ -39,6 +43,7 @@
   font-weight: 700;
   color: var(--gray);
   border-radius: 0 10rem 10rem 0;
+  transition: all 0.2s;
 
   display: flex;
   align-items: center;
@@ -52,6 +57,7 @@
 
 .btn-board img {
   margin-left: 3.2rem;
+  transition: all 0.2s;
 }
 
 .btn-create-new-board img {
@@ -86,6 +92,7 @@
   background-color: var(--purple);
   border-radius: 1.2rem;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .theme-switcher-ball {
@@ -96,14 +103,33 @@
 }
 
 .btn-hide-sidebar {
-  margin: 2.2rem 0 4.5rem 3.2rem;
+  padding: 1.5rem 0;
+  margin: 2.2rem 2.4rem 4.5rem 0;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--gray);
+  border-radius: 0 10rem 10rem 0;
+  transition: all 0.2s;
 
   display: flex;
   align-items: center;
   gap: 1.5rem;
+}
+
+.btn-hide-sidebar img {
+  margin-left: 3.2rem;
+}
+
+.btn-show-sidebar {
+  padding: 1.8rem 2.2rem 1.8rem 1.8rem;
+  background-color: var(--purple);
+  border-radius: 0 10rem 10rem 0;
+  transition: all 0.2s;
+
+  position: absolute;
+  left: 0;
+  bottom: 3.2rem;
+  z-index: 100;
 }
 
 .ml {
@@ -112,4 +138,23 @@
 
 .hidden {
   display: none;
+}
+
+@media (hover: hover) {
+  .theme-switcher:hover,
+  .btn-show-sidebar:hover {
+    background-color: var(--purple-hover);
+  }
+
+  .btn-board:hover,
+  .btn-hide-sidebar:hover {
+    color: var(--purple);
+    background-color: var(--purple10-white);
+  }
+
+  .btn-board:hover img,
+  .btn-hide-sidebar:hover img {
+    filter: brightness(0) saturate(100%) invert(35%) sepia(63%) saturate(771%)
+      hue-rotate(206deg) brightness(96%) contrast(83%);
+  }
 }

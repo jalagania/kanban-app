@@ -5,8 +5,13 @@ const dataSlice = createSlice({
   name: "appData",
   initialState: {
     appData: data,
+    selectedBoard: data[0].name,
   },
-  reducers: {},
+  reducers: {
+    setSelectedBoard: (state, action) => {
+      state.selectedBoard = action.payload;
+    },
+  },
 });
 
 export default dataSlice;

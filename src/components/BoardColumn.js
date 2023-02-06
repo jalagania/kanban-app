@@ -14,7 +14,12 @@ function BoardColumn(props) {
             <div key={index} className="task-box">
               <h3 className="task-title">{task.title}</h3>
               <p className="subtask-amount-text">
-                <span>0</span>
+                <span>
+                  {
+                    task.subtasks.filter((sub) => sub.isCompleted === true)
+                      .length
+                  }
+                </span>
                 <span> of {task.subtasks.length} subtasks</span>
               </p>
             </div>

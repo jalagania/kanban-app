@@ -1,0 +1,72 @@
+.delete-modal-container,
+.delete-modal-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.delete-modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-modal-window {
+  width: 48rem;
+  padding: 3.2rem 3.2rem 4rem 3.2rem;
+  background-color: var(--white-gray);
+  border-radius: 0.6rem;
+  z-index: 100;
+}
+
+.delete-modal-window h2 {
+  color: var(--red);
+}
+
+.delete-modal-window p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--gray);
+  margin: 2.4rem 0;
+  line-height: 2.3rem;
+}
+
+.delete-modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-modal-buttons button {
+  padding: 1.2rem 8rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-radius: 2rem;
+}
+
+.btn-confirm-delete {
+  color: white;
+  background-color: var(--red);
+}
+
+.btn-cancel-delete {
+  color: var(--purple);
+  background-color: var(--purple10-white);
+}
+
+.delete-modal-bg {
+  background-color: black;
+  opacity: 0.6;
+}
+
+@media (hover: hover) {
+  .btn-confirm-delete:hover {
+    background-color: var(--red-hover);
+  }
+
+  .btn-cancel-delete:hover {
+    background-color: var(--purple25-white);
+  }
+}

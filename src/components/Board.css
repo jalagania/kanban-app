@@ -20,6 +20,10 @@
   border-radius: 1rem;
 }
 
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}
+
 .board-columns-box {
   width: 99.5%;
   height: 99.5%;

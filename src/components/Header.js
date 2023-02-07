@@ -4,12 +4,24 @@ import logoDark from "../assets/logo-dark.svg";
 import logoMobile from "../assets/logo-mobile.svg";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import deleteModalSlice from "../store/deleteModalSlice";
 
 function Header() {
+  const dispatch = useDispatch();
   const { sidebarHidden, darkMode } = useSelector((store) => store.sidebar);
   const { selectedBoard } = useSelector((store) => store.data);
+  const { setShowDeleteModal } = deleteModalSlice.actions;
   const [showMenu, setShowMenu] = useState(false);
+
+  function handleEditBoard() {
+    //
+  }
+
+  function handleDeleteBoard() {
+    dispatch(setShowDeleteModal(true));
+    setShowMenu(false);
+  }
 
   function handleEllipsisButton() {
     setShowMenu(!showMenu);
@@ -56,8 +68,12 @@ function Header() {
           <img src={ellipsis} alt="vertical ellipsis" />
         </button>
         <div className={`edit-board-menu ${showMenu ? "" : "hidden"}`}>
-          <button className="btn-edit-board">Edit Board</button>
-          <button className="btn-delete-board">Delete Board</button>
+          <button className="btn-edit-board" onClick={handleEditBoard}>
+            Edit Board
+          </button>
+          <button className="btn-delete-board" onClick={handleDeleteBoard}>
+            Delete Board
+          </button>
         </div>
       </div>
     </header>

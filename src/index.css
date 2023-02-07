@@ -11,6 +11,7 @@
   --purple10-white: rgba(99, 95, 199, 0.1);
   --purple25-white: rgba(99, 95, 199, 0.25);
   --white-gray: white;
+  --blueL-gray: #e9effa;
   --white-grayD: white;
   --grayL-grayD: #f4f7fd;
   --lines: #e4ebfa;
@@ -21,6 +22,7 @@
   --purple10-white: white;
   --purple25-white: white;
   --white-gray: #2b2c37;
+  --blueL-gray: #2b2c37;
   --white-grayD: #20212c;
   --grayL-grayD: #20212c;
   --lines: #3e3f4e;
@@ -42,7 +44,6 @@ body {
   min-height: 100vh;
   font-size: 1.6rem;
   font-family: "Plus Jakarta Sans", sans-serif;
-  /* background-color: var(--grayL-grayD); */
 }
 
 h1 {

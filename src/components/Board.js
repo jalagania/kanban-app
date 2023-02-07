@@ -11,6 +11,7 @@ function Board() {
   useEffect(() => {
     const [data] = appData.filter((board) => board.name === selectedBoard);
     setBoardData(data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedBoard]);
 
   return (
@@ -20,6 +21,9 @@ function Board() {
           {boardData.columns.map((column, index) => {
             return <BoardColumn key={index} column={column} />;
           })}
+          <div className="new-column-box">
+            <button className="btn-new-column">+ New Column</button>
+          </div>
         </div>
       )}
       {boardData.columns.length < 1 && (

@@ -41,10 +41,12 @@
   background-color: var(--white-gray);
   box-shadow: 0 4px 6px rgba(54, 78, 126, 0.101545);
   border-radius: 0.8rem;
+  cursor: pointer;
 }
 
 .task-title {
   color: var(--black-white);
+  transition: all 0.2s;
 }
 
 .subtask-amount-text {
@@ -52,4 +54,10 @@
   font-weight: 700;
   color: var(--gray);
   margin-top: 0.8rem;
+}
+
+@media (hover: hover) {
+  .task-box:hover .task-title {
+    color: var(--purple);
+  }
 }

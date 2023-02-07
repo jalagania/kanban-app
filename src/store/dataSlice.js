@@ -11,6 +11,13 @@ const dataSlice = createSlice({
     setSelectedBoard: (state, action) => {
       state.selectedBoard = action.payload;
     },
+
+    deleteBoard: (state, action) => {
+      const index = state.appData.findIndex(
+        (board) => board.name === action.payload
+      );
+      state.appData[index].columns = [];
+    },
   },
 });
 

@@ -12,7 +12,7 @@ function Board() {
     const [data] = appData.filter((board) => board.name === selectedBoard);
     setBoardData(data);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedBoard]);
+  }, [appData, selectedBoard]);
 
   return (
     <div className="board-container">

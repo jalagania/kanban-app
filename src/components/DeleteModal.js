@@ -1,14 +1,17 @@
 import "./DeleteModal.css";
 import { useDispatch, useSelector } from "react-redux";
 import deleteModalSlice from "../store/deleteModalSlice";
+import dataSlice from "../store/dataSlice";
 
 function DeleteModal() {
   const dispatch = useDispatch();
   const { selectedBoard } = useSelector((store) => store.data);
   const { setShowDeleteModal } = deleteModalSlice.actions;
+  const { deleteBoard } = dataSlice.actions;
 
   function handleConfirmDelete() {
-    //
+    dispatch(deleteBoard(selectedBoard));
+    dispatch(setShowDeleteModal(false));
   }
 
   function handleCancelDelete() {

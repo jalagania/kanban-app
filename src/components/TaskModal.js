@@ -6,14 +6,13 @@ import arrowUp from "../assets/icon-chevron-up.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import taskModalSlice from "../store/taskModalSlice";
-
-// import taskModalSlice from "../store/taskModalSlice";
-// import dataSlice from "../store/dataSlice";
+import dataSlice from "../store/dataSlice";
 
 function TaskModal() {
   const dispatch = useDispatch();
   const { appData } = useSelector((store) => store.data);
   const { taskInfo } = useSelector((store) => store.taskModal);
+  const { setSubtaskStatus } = dataSlice.actions;
   const task = appData
     .filter((board) => board.name === taskInfo.board)[0]
     .columns.filter((column) => column.name === taskInfo.column)[0].tasks[
@@ -76,7 +75,11 @@ function TaskModal() {
         <div className="task-modal-subtasks">
           {task.subtasks.map((sub, index) => {
             return (
-              <div key={index} className="task-modal-subtask">
+              <div
+                key={index}
+                className="task-modal-subtask"
+                onClick={() => dispatch(setSubtaskStatus([taskInfo, index]))}
+              >
                 <div
                   className={`check-box ${sub.isCompleted ? "checked" : ""}`}
                 >

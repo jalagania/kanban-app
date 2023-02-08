@@ -42,7 +42,7 @@
 .task-modal-buttons {
   width: 19rem;
   padding: 1.6rem;
-  background-color: var(--grayL-grayD);
+  background-color: var(--white-grayD);
   box-shadow: 0 1rem 2rem rgba(54, 78, 126, 0.25);
   border-radius: 0.8rem;
   z-index: 100;
@@ -93,6 +93,8 @@
   padding: 1.2rem;
   background-color: var(--grayL-grayD);
   border-radius: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s;
 
   display: flex;
   align-items: center;
@@ -104,6 +106,7 @@
   height: 1.6rem;
   background-color: var(--white-gray);
   border-radius: 2px;
+  border: 1px solid rgba(130, 143, 163, 0.248914);
 
   display: flex;
   align-items: center;
@@ -196,12 +199,8 @@
 }
 
 @media (hover: hover) {
-  .btn-confirm-delete:hover {
-    background-color: var(--red-hover);
-  }
-
-  .btn-cancel-delete:hover {
-    background-color: var(--purple25-white);
+  .task-modal-subtask:hover {
+    background-color: var(--purple25);
   }
 
   .tm-status-menu-body button:hover {

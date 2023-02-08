@@ -41,7 +41,6 @@ function DeleteModal() {
           </button>
         </div>
       </div>
-
       <div className="delete-modal-bg" onClick={handleCancelDelete}></div>
     </div>
   );

@@ -1,6 +1,22 @@
 import "./BoardColumn.css";
+import { useDispatch, useSelector } from "react-redux";
+import taskModalSlice from "../store/taskModalSlice";
 
 function BoardColumn(props) {
+  const dispatch = useDispatch();
+  const { selectedBoard } = useSelector((store) => store.data);
+  const { setTaskInfo, setShowTaskModal } = taskModalSlice.actions;
+
+  function handleTaskBox(board, column, index) {
+    const taskInfo = {
+      board,
+      column,
+      index,
+    };
+    dispatch(setTaskInfo(taskInfo));
+    dispatch(setShowTaskModal(true));
+  }
+
   return (
     <div className="column-container">
       <h4 className="column-name">
@@ -11,7 +27,13 @@ function BoardColumn(props) {
       <div className="tasks-container">
         {props.column.tasks.map((task, index) => {
           return (
-            <div key={index} className="task-box">
+            <div
+              key={index}
+              className="task-box"
+              onClick={() => {
+                handleTaskBox(selectedBoard, props.column.name, index);
+              }}
+            >
               <h3 className="task-title">{task.title}</h3>
               <p className="subtask-amount-text">
                 <span>

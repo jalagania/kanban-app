@@ -1,0 +1,206 @@
+.task-modal-container,
+.task-modal-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.task-modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-modal-window {
+  width: 48rem;
+  padding: 3.2rem;
+  background-color: var(--white-gray);
+  border-radius: 0.6rem;
+  z-index: 100;
+}
+
+.task-modal-header {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.task-modal-header h2 {
+  color: var(--black-white);
+}
+
+.task-modal-header button {
+  flex-shrink: 0;
+}
+
+.task-modal-buttons {
+  width: 19rem;
+  padding: 1.6rem;
+  background-color: var(--grayL-grayD);
+  box-shadow: 0 1rem 2rem rgba(54, 78, 126, 0.25);
+  border-radius: 0.8rem;
+  z-index: 100;
+
+  position: absolute;
+  top: 7rem;
+  right: -12rem;
+}
+
+.task-modal-buttons button {
+  display: block;
+}
+
+.btn-task-modal-edit {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--gray);
+}
+
+.btn-task-modal-delete {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--red);
+  margin-top: 1.6rem;
+}
+
+.task-modal-window h4 {
+  color: var(--gray);
+}
+
+.task-modal-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--gray);
+  margin: 2.4rem 0;
+  line-height: 2.3rem;
+}
+
+.task-modal-subtasks {
+  margin: 1.6rem 0 2.4rem 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.task-modal-subtask {
+  padding: 1.2rem;
+  background-color: var(--grayL-grayD);
+  border-radius: 0.4rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.check-box {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: var(--white-gray);
+  border-radius: 2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.check-box.checked {
+  background-color: var(--purple);
+}
+
+.task-modal-subtask p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  color: var(--black-white);
+}
+
+.task-modal-subtask p.completed {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.task-modal-status-menu {
+  position: relative;
+}
+
+.btn-tm-status-menu-head {
+  width: 100%;
+  margin-top: 0.8rem;
+  padding: 0.8rem 1.6rem;
+  color: var(--black-white);
+  font-size: 1.3rem;
+  font-weight: 500;
+  background-color: var(--white-gray);
+  border: 1px solid rgba(130, 143, 163, 0.25);
+  border-radius: 0.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-tm-status-menu-head.active {
+  border: 1px solid var(--purple);
+}
+
+.btn-tm-status-menu-head img {
+  transition: all 0.2s;
+}
+
+.tm-status-menu-body {
+  width: 100%;
+  padding: 1.6rem;
+  background-color: var(--white-grayD);
+  box-shadow: 0 1rem 2rem rgba(54, 78, 126, 0.25);
+  border-radius: 0.8rem;
+
+  position: absolute;
+  top: -17.5rem;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.tm-status-menu-body button {
+  width: 100%;
+  padding: 0.8rem 1.6rem;
+  color: var(--black-white);
+  font-size: 1.3rem;
+  font-weight: 500;
+  border-radius: 0.4rem;
+  display: flex;
+}
+
+.task-modal-bg {
+  background-color: black;
+  opacity: 0.6;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (hover: hover) {
+  .btn-confirm-delete:hover {
+    background-color: var(--red-hover);
+  }
+
+  .btn-cancel-delete:hover {
+    background-color: var(--purple25-white);
+  }
+
+  .tm-status-menu-body button:hover {
+    background-color: var(--purple25);
+  }
+}

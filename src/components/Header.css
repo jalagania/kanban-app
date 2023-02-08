@@ -67,11 +67,6 @@
   position: absolute;
   top: 8rem;
   right: 3rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.6rem;
 }
 
 .edit-board-menu button {
@@ -88,6 +83,7 @@
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--red);
+  margin-top: 1.6rem;
 }
 
 @media (hover: hover) {

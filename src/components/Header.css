@@ -91,3 +91,11 @@
     background-color: var(--purple-hover);
   }
 }
+
+.disabled:hover {
+  background-color: var(--purple);
+}
+
+.disabled:active {
+  scale: 1;
+}

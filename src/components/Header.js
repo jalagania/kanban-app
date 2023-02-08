@@ -10,9 +10,14 @@ import deleteModalSlice from "../store/deleteModalSlice";
 function Header() {
   const dispatch = useDispatch();
   const { sidebarHidden, darkMode } = useSelector((store) => store.sidebar);
-  const { selectedBoard } = useSelector((store) => store.data);
+  const { appData, selectedBoard } = useSelector((store) => store.data);
   const { setShowDeleteModal } = deleteModalSlice.actions;
   const [showMenu, setShowMenu] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+
+  function handleAddTask() {
+    console.log("damn");
+  }
 
   function handleEditBoard() {
     //
@@ -44,6 +49,17 @@ function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    if (
+      appData.filter((board) => board.name === selectedBoard)[0].columns
+        .length < 1
+    ) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [appData, selectedBoard]);
+
   return (
     <header className="header-container">
       <div
@@ -63,7 +79,13 @@ function Header() {
       </div>
       <div className="header-right-wrapper">
         <h1>{selectedBoard}</h1>
-        <button className="btn btn-add-new-task">+ Add New Task</button>
+        <button
+          disabled={disabled}
+          className={`btn btn-add-new-task ${disabled ? "disabled" : ""}`}
+          onClick={handleAddTask}
+        >
+          + Add New Task
+        </button>
         <button className="btn-ellipsis" onClick={handleEllipsisButton}>
           <img src={ellipsis} alt="vertical ellipsis" />
         </button>

@@ -1,9 +1,10 @@
 import "./TaskModal.css";
 import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 import check from "../assets/icon-check.svg";
-import downArrow from "../assets/icon-chevron-up.svg";
+import arrowDown from "../assets/icon-chevron-down.svg";
+import arrowUp from "../assets/icon-chevron-up.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import taskModalSlice from "../store/taskModalSlice";
 
 // import taskModalSlice from "../store/taskModalSlice";
@@ -22,6 +23,7 @@ function TaskModal() {
   const { setShowTaskModal } = taskModalSlice.actions;
   const [showModalButtons, setShowModalButtons] = useState(false);
   const [showStatusMenu, setShowStatusMenu] = useState(false);
+  const wideScreen = window.innerHeight >= 900;
 
   function handelEllipsisButton() {
     setShowModalButtons(!showModalButtons);
@@ -31,12 +33,31 @@ function TaskModal() {
     setShowStatusMenu(!showStatusMenu);
   }
 
+  useEffect(() => {
+    function closeMenus(event) {
+      if (
+        !event.target.closest(".btn-tm-ellipsis") &&
+        !event.target.closest(".task-modal-buttons") &&
+        !event.target.closest(".task-modal-status-menu")
+      ) {
+        setShowModalButtons(false);
+        setShowStatusMenu(false);
+      }
+    }
+
+    document.addEventListener("click", closeMenus);
+
+    return () => {
+      document.removeEventListener("click", closeMenus);
+    };
+  }, []);
+
   return (
     <div className="task-modal-container">
       <div className="task-modal-window">
         <div className="task-modal-header">
           <h2>{task.title}</h2>
-          <button onClick={handelEllipsisButton}>
+          <button className="btn-tm-ellipsis" onClick={handelEllipsisButton}>
             <img src={ellipsis} alt="ellipsis icon" />
           </button>
           <div
@@ -82,13 +103,15 @@ function TaskModal() {
           >
             <p>{task.status || "Select Status"}</p>
             <img
-              src={downArrow}
-              alt="down arrow"
+              src={wideScreen ? arrowDown : arrowUp}
+              alt="arrow"
               className={showStatusMenu ? "rotate" : ""}
             />
           </button>
           <div
-            className={`tm-status-menu-body ${showStatusMenu ? "" : "hidden"}`}
+            className={`tm-status-menu-body ${wideScreen ? "menu-down" : ""}  ${
+              showStatusMenu ? "" : "hidden"
+            }`}
           >
             {appData
               .filter((board) => board.name === taskInfo.board)[0]

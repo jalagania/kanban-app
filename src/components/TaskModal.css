@@ -172,6 +172,10 @@
   gap: 0.8rem;
 }
 
+.tm-status-menu-body.menu-down {
+  top: 4.5rem;
+}
+
 .tm-status-menu-body button {
   width: 100%;
   padding: 0.8rem 1.6rem;

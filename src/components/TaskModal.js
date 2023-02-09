@@ -7,12 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import taskModalSlice from "../store/taskModalSlice";
 import dataSlice from "../store/dataSlice";
+import deleteModalSlice from "../store/deleteModalSlice";
 
 function TaskModal() {
   const dispatch = useDispatch();
   const { appData } = useSelector((store) => store.data);
   const { taskInfo } = useSelector((store) => store.taskModal);
-  const { setSubtaskStatus, setTaskStatus, deleteTask } = dataSlice.actions;
+  const { setSubtaskStatus, setTaskStatus } = dataSlice.actions;
+  const { setShowDeleteModal } = deleteModalSlice.actions;
   const task = appData
     .filter((board) => board.name === taskInfo.board)[0]
     .tasks.filter((task) => task.title === taskInfo.title)[0];
@@ -31,8 +33,8 @@ function TaskModal() {
   }
 
   function handleDeleteTask() {
-    dispatch(deleteTask(taskInfo));
     dispatch(setShowTaskModal(false));
+    dispatch(setShowDeleteModal([true, "task"]));
   }
 
   function handleStatusMenu() {

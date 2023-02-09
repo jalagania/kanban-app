@@ -24,8 +24,13 @@ function Header() {
   }
 
   function handleDeleteBoard() {
-    dispatch(setShowDeleteModal(true));
-    setShowMenu(false);
+    if (
+      appData.filter((board) => board.name === selectedBoard)[0].columns
+        .length > 0
+    ) {
+      dispatch(setShowDeleteModal([true, "board"]));
+      setShowMenu(false);
+    }
   }
 
   function handleEllipsisButton() {

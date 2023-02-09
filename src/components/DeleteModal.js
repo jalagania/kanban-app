@@ -5,12 +5,20 @@ import dataSlice from "../store/dataSlice";
 
 function DeleteModal() {
   const dispatch = useDispatch();
+  const { taskInfo } = useSelector((store) => store.taskModal);
+  const { deleteModal } = useSelector((store) => store.deleteModal);
   const { selectedBoard } = useSelector((store) => store.data);
   const { setShowDeleteModal } = deleteModalSlice.actions;
-  const { deleteBoard } = dataSlice.actions;
+  const { deleteBoard, deleteTask } = dataSlice.actions;
+
+  const title = deleteModal === "board" ? "board" : "task";
 
   function handleConfirmDelete() {
-    dispatch(deleteBoard(selectedBoard));
+    if (deleteModal === "board") {
+      dispatch(deleteBoard(selectedBoard));
+    } else {
+      dispatch(deleteTask(taskInfo));
+    }
     dispatch(setShowDeleteModal(false));
   }
 
@@ -21,11 +29,19 @@ function DeleteModal() {
   return (
     <div className="delete-modal-container">
       <div className="delete-modal-window">
-        <h2>Delete this board?</h2>
-        <p>
-          Are you sure you want to delete the '{selectedBoard}' board? This
-          action will remove all columns and tasks and cannot be reversed.
-        </p>
+        <h2>Delete this {title}?</h2>
+        {deleteModal === "board" && (
+          <p>
+            Are you sure you want to delete the '{selectedBoard}' board? This
+            action will remove all columns and tasks and cannot be reversed.
+          </p>
+        )}
+        {deleteModal === "task" && (
+          <p>
+            Are you sure you want to delete the '{taskInfo.title}' task and its
+            subtasks? This action cannot be reversed.
+          </p>
+        )}
         <div className="delete-modal-buttons">
           <button
             className="btn btn-confirm-delete"

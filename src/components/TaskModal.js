@@ -12,7 +12,7 @@ function TaskModal() {
   const dispatch = useDispatch();
   const { appData } = useSelector((store) => store.data);
   const { taskInfo } = useSelector((store) => store.taskModal);
-  const { setSubtaskStatus, setTaskStatus } = dataSlice.actions;
+  const { setSubtaskStatus, setTaskStatus, deleteTask } = dataSlice.actions;
   const task = appData
     .filter((board) => board.name === taskInfo.board)[0]
     .tasks.filter((task) => task.title === taskInfo.title)[0];
@@ -24,6 +24,15 @@ function TaskModal() {
 
   function handelEllipsisButton() {
     setShowModalButtons(!showModalButtons);
+  }
+
+  function handleEditTask() {
+    console.log("edit task");
+  }
+
+  function handleDeleteTask() {
+    dispatch(deleteTask(taskInfo));
+    dispatch(setShowTaskModal(false));
   }
 
   function handleStatusMenu() {
@@ -65,8 +74,15 @@ function TaskModal() {
           <div
             className={`task-modal-buttons ${showModalButtons ? "" : "hidden"}`}
           >
-            <button className="btn-task-modal-edit">Edit Task</button>
-            <button className="btn-task-modal-delete">Delete Task</button>
+            <button className="btn-task-modal-edit" onClick={handleEditTask}>
+              Edit Task
+            </button>
+            <button
+              className="btn-task-modal-delete"
+              onClick={handleDeleteTask}
+            >
+              Delete Task
+            </button>
           </div>
         </div>
         <p className="task-modal-text">{task.description}</p>

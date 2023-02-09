@@ -20,6 +20,16 @@ const dataSlice = createSlice({
       state.appData[index].tasks = [];
     },
 
+    deleteTask: (state, action) => {
+      const task = action.payload;
+      const index = state.appData.findIndex(
+        (board) => board.name === task.board
+      );
+      state.appData[index].tasks = state.appData[index].tasks.filter(
+        (t) => t.title !== task.title
+      );
+    },
+
     setSubtaskStatus: (state, action) => {
       const [task, subIndex] = action.payload;
       state.appData

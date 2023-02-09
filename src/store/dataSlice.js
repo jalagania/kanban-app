@@ -17,19 +17,26 @@ const dataSlice = createSlice({
         (board) => board.name === action.payload
       );
       state.appData[index].columns = [];
+      state.appData[index].tasks = [];
     },
 
     setSubtaskStatus: (state, action) => {
       const [task, subIndex] = action.payload;
       state.appData
         .filter((board) => board.name === task.board)[0]
-        .columns.filter((column) => column.name === task.column)[0].tasks[
-        task.index
-      ].subtasks[subIndex].isCompleted = !state.appData
+        .tasks.filter((t) => t.title === task.title)[0].subtasks[
+        subIndex
+      ].isCompleted = !state.appData
         .filter((board) => board.name === task.board)[0]
-        .columns.filter((column) => column.name === task.column)[0].tasks[
-        task.index
-      ].subtasks[subIndex].isCompleted;
+        .tasks.filter((t) => t.title === task.title)[0].subtasks[subIndex]
+        .isCompleted;
+    },
+
+    setTaskStatus: (state, action) => {
+      const [task, status] = action.payload;
+      state.appData
+        .filter((board) => board.name === task.board)[0]
+        .tasks.filter((t) => t.title === task.title)[0].status = status;
     },
   },
 });

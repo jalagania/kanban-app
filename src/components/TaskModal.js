@@ -12,12 +12,10 @@ function TaskModal() {
   const dispatch = useDispatch();
   const { appData } = useSelector((store) => store.data);
   const { taskInfo } = useSelector((store) => store.taskModal);
-  const { setSubtaskStatus } = dataSlice.actions;
+  const { setSubtaskStatus, setTaskStatus } = dataSlice.actions;
   const task = appData
     .filter((board) => board.name === taskInfo.board)[0]
-    .columns.filter((column) => column.name === taskInfo.column)[0].tasks[
-    taskInfo.index
-  ];
+    .tasks.filter((task) => task.title === taskInfo.title)[0];
 
   const { setShowTaskModal } = taskModalSlice.actions;
   const [showModalButtons, setShowModalButtons] = useState(false);
@@ -30,6 +28,11 @@ function TaskModal() {
 
   function handleStatusMenu() {
     setShowStatusMenu(!showStatusMenu);
+  }
+
+  function handleSubtaskStatus(event) {
+    dispatch(setTaskStatus([taskInfo, event.target.textContent]));
+    setShowStatusMenu(false);
   }
 
   useEffect(() => {
@@ -119,7 +122,11 @@ function TaskModal() {
             {appData
               .filter((board) => board.name === taskInfo.board)[0]
               .columns.map((column, index) => {
-                return <button key={index}>{column.name}</button>;
+                return (
+                  <button key={index} onClick={handleSubtaskStatus}>
+                    {column}
+                  </button>
+                );
               })}
           </div>
         </div>

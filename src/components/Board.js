@@ -19,7 +19,9 @@ function Board() {
       {boardData.columns.length > 0 && (
         <div className="board-columns-box">
           {boardData.columns.map((column, index) => {
-            return <BoardColumn key={index} column={column} />;
+            return (
+              <BoardColumn key={index} name={column} tasks={boardData.tasks} />
+            );
           })}
           <div className="new-column-box">
             <button className="btn-new-column">+ New Column</button>

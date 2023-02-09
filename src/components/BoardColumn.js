@@ -7,11 +7,10 @@ function BoardColumn(props) {
   const { selectedBoard } = useSelector((store) => store.data);
   const { setTaskInfo, setShowTaskModal } = taskModalSlice.actions;
 
-  function handleTaskBox(board, column, index) {
+  function handleTaskBox(board, title) {
     const taskInfo = {
       board,
-      column,
-      index,
+      title,
     };
     dispatch(setTaskInfo(taskInfo));
     dispatch(setShowTaskModal(true));
@@ -20,33 +19,37 @@ function BoardColumn(props) {
   return (
     <div className="column-container">
       <h4 className="column-name">
-        <span className={`ball ${props.column.name.toLowerCase()}`}></span>
-        <span>{props.column.name} </span>
-        <span>({props.column.tasks.length})</span>
+        <span className={`ball ${props.name.toLowerCase()}`}></span>
+        <span>{props.name} </span>
+        <span>
+          ({props.tasks.filter((task) => task.status === props.name).length})
+        </span>
       </h4>
       <div className="tasks-container">
-        {props.column.tasks.map((task, index) => {
-          return (
-            <div
-              key={index}
-              className="task-box"
-              onClick={() => {
-                handleTaskBox(selectedBoard, props.column.name, index);
-              }}
-            >
-              <h3 className="task-title">{task.title}</h3>
-              <p className="subtask-amount-text">
-                <span>
-                  {
-                    task.subtasks.filter((sub) => sub.isCompleted === true)
-                      .length
-                  }
-                </span>
-                <span> of {task.subtasks.length} subtasks</span>
-              </p>
-            </div>
-          );
-        })}
+        {props.tasks
+          .filter((task) => task.status === props.name)
+          .map((task, index) => {
+            return (
+              <div
+                key={index}
+                className="task-box"
+                onClick={() => {
+                  handleTaskBox(selectedBoard, task.title);
+                }}
+              >
+                <h3 className="task-title">{task.title}</h3>
+                <p className="subtask-amount-text">
+                  <span>
+                    {
+                      task.subtasks.filter((sub) => sub.isCompleted === true)
+                        .length
+                    }
+                  </span>
+                  <span> of {task.subtasks.length} subtasks</span>
+                </p>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

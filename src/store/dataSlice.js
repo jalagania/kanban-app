@@ -12,12 +12,21 @@ const dataSlice = createSlice({
       state.selectedBoard = action.payload;
     },
 
-    deleteBoard: (state, action) => {
+    addBoard: (state, action) => {
+      state.appData.push(action.payload);
+    },
+
+    updateBoard: (state, action) => {
       const index = state.appData.findIndex(
-        (board) => board.name === action.payload
+        (board) => board.name === state.selectedBoard
       );
-      state.appData[index].columns = [];
-      state.appData[index].tasks = [];
+      state.appData[index] = { ...state.appData[index], ...action.payload };
+    },
+
+    deleteBoard: (state, action) => {
+      state.appData = state.appData.filter(
+        (board) => board.name !== action.payload
+      );
     },
 
     deleteTask: (state, action) => {

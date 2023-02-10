@@ -1,12 +1,19 @@
 import "./Board.css";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import BoardColumn from "./BoardColumn";
+import boardFormSlice from "../store/boardFormSlice";
 
 function Board() {
+  const dispatch = useDispatch();
+  const { setShowBoardFormModal } = boardFormSlice.actions;
   const { appData, selectedBoard } = useSelector((store) => store.data);
   const [data] = appData.filter((board) => board.name === selectedBoard);
   const [boardData, setBoardData] = useState(data);
+
+  function handleAddNewColumn() {
+    dispatch(setShowBoardFormModal([true, "edit"]));
+  }
 
   useEffect(() => {
     const [data] = appData.filter((board) => board.name === selectedBoard);
@@ -24,14 +31,21 @@ function Board() {
             );
           })}
           <div className="new-column-box">
-            <button className="btn-new-column">+ New Column</button>
+            <button className="btn-new-column" onClick={handleAddNewColumn}>
+              + New Column
+            </button>
           </div>
         </div>
       )}
       {boardData.columns.length < 1 && (
         <div className="empty-board-box">
           <p>This board is empty. Create a new column to get started.</p>
-          <button className="btn btn-add-new-column">+ Add New Column</button>
+          <button
+            className="btn btn-add-new-column"
+            onClick={handleAddNewColumn}
+          >
+            + Add New Column
+          </button>
         </div>
       )}
     </div>

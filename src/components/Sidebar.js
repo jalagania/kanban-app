@@ -7,6 +7,7 @@ import showSidebar from "../assets/icon-show-sidebar.svg";
 import { useDispatch, useSelector } from "react-redux";
 import dataSlice from "../store/dataSlice";
 import sidebarSlice from "../store/sidebarSlice";
+import boardFormSlice from "../store/boardFormSlice";
 
 function Sidebar() {
   const dispatch = useDispatch();
@@ -15,8 +16,13 @@ function Sidebar() {
   const { appData } = useSelector((store) => store.data);
   const { selectedBoard } = useSelector((store) => store.data);
   const { setSelectedBoard } = dataSlice.actions;
+  const { setShowBoardFormModal } = boardFormSlice.actions;
 
   document.body.className = darkMode ? "dark-mode" : "";
+
+  function handleCreateNewBoard() {
+    dispatch(setShowBoardFormModal([true, "add"]));
+  }
 
   function handleThemeChange() {
     dispatch(setDarkMode(!darkMode));
@@ -54,7 +60,10 @@ function Sidebar() {
                 </button>
               );
             })}
-            <button className="btn-board btn-create-new-board">
+            <button
+              className="btn-board btn-create-new-board"
+              onClick={handleCreateNewBoard}
+            >
               <img src={iconBoard} alt="board icon" className="icon-board" />
               <p>+ Create New Board</p>
             </button>

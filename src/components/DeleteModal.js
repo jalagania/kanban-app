@@ -7,23 +7,26 @@ function DeleteModal() {
   const dispatch = useDispatch();
   const { taskInfo } = useSelector((store) => store.taskModal);
   const { deleteModal } = useSelector((store) => store.deleteModal);
-  const { selectedBoard } = useSelector((store) => store.data);
+  const { appData, selectedBoard } = useSelector((store) => store.data);
   const { setShowDeleteModal } = deleteModalSlice.actions;
-  const { deleteBoard, deleteTask } = dataSlice.actions;
+  const { setSelectedBoard, deleteBoard, deleteTask } = dataSlice.actions;
 
   const title = deleteModal === "board" ? "board" : "task";
 
   function handleConfirmDelete() {
     if (deleteModal === "board") {
+      let index = appData.findIndex((board) => board.name === selectedBoard);
+      index = index === 0 ? 1 : 0;
       dispatch(deleteBoard(selectedBoard));
+      dispatch(setSelectedBoard(appData[index].name));
     } else {
       dispatch(deleteTask(taskInfo));
     }
-    dispatch(setShowDeleteModal(false));
+    dispatch(setShowDeleteModal([false]));
   }
 
   function handleCancelDelete() {
-    dispatch(setShowDeleteModal(false));
+    dispatch(setShowDeleteModal([false]));
   }
 
   return (

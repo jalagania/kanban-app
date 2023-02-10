@@ -6,12 +6,16 @@ import ellipsis from "../assets/icon-vertical-ellipsis.svg";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import deleteModalSlice from "../store/deleteModalSlice";
+import boardFormSlice from "../store/boardFormSlice";
+import dataSlice from "../store/dataSlice";
 
 function Header() {
   const dispatch = useDispatch();
   const { sidebarHidden, darkMode } = useSelector((store) => store.sidebar);
   const { appData, selectedBoard } = useSelector((store) => store.data);
+  const { setSelectedBoard } = dataSlice.actions;
   const { setShowDeleteModal } = deleteModalSlice.actions;
+  const { setShowBoardFormModal } = boardFormSlice.actions;
   const [showMenu, setShowMenu] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
@@ -20,17 +24,13 @@ function Header() {
   }
 
   function handleEditBoard() {
-    //
+    dispatch(setShowBoardFormModal([true, "edit"]));
+    setShowMenu(false);
   }
 
   function handleDeleteBoard() {
-    if (
-      appData.filter((board) => board.name === selectedBoard)[0].columns
-        .length > 0
-    ) {
-      dispatch(setShowDeleteModal([true, "board"]));
-      setShowMenu(false);
-    }
+    dispatch(setShowDeleteModal([true, "board"]));
+    setShowMenu(false);
   }
 
   function handleEllipsisButton() {

@@ -11,6 +11,7 @@
   --purple10-white: rgba(99, 95, 199, 0.1);
   --purple25-white: rgba(99, 95, 199, 0.25);
   --white-gray: white;
+  --grayM-white: #828fa3;
   --blueL-gray: #e9effa;
   --white-grayD: white;
   --grayL-grayD: #f4f7fd;
@@ -22,6 +23,7 @@
   --purple10-white: white;
   --purple25-white: white;
   --white-gray: #2b2c37;
+  --grayM-white: white;
   --blueL-gray: #2b2c37;
   --white-grayD: #20212c;
   --grayL-grayD: #20212c;
@@ -82,10 +84,14 @@ select {
   font: inherit;
 }
 
+input,
+button {
+  background-color: transparent;
+}
+
 button {
   border: none;
   cursor: pointer;
-  background-color: transparent;
 }
 
 .btn {

@@ -7,13 +7,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import deleteModalSlice from "../store/deleteModalSlice";
 import boardFormSlice from "../store/boardFormSlice";
-import dataSlice from "../store/dataSlice";
 
 function Header() {
   const dispatch = useDispatch();
   const { sidebarHidden, darkMode } = useSelector((store) => store.sidebar);
   const { appData, selectedBoard } = useSelector((store) => store.data);
-  const { setSelectedBoard } = dataSlice.actions;
   const { setShowDeleteModal } = deleteModalSlice.actions;
   const { setShowBoardFormModal } = boardFormSlice.actions;
   const [showMenu, setShowMenu] = useState(false);
@@ -55,7 +53,9 @@ function Header() {
   }, []);
 
   useEffect(() => {
-    if (
+    if (appData.length < 1) {
+      setDisabled(true);
+    } else if (
       appData.filter((board) => board.name === selectedBoard)[0].columns
         .length < 1
     ) {
@@ -82,27 +82,30 @@ function Header() {
         />
         <img src={logoMobile} alt="logo" className="logo-mobile" />
       </div>
-      <div className="header-right-wrapper">
-        <h1>{selectedBoard}</h1>
-        <button
-          disabled={disabled}
-          className={`btn btn-add-new-task ${disabled ? "disabled" : ""}`}
-          onClick={handleAddTask}
-        >
-          + Add New Task
-        </button>
-        <button className="btn-ellipsis" onClick={handleEllipsisButton}>
-          <img src={ellipsis} alt="vertical ellipsis" />
-        </button>
-        <div className={`edit-board-menu ${showMenu ? "" : "hidden"}`}>
-          <button className="btn-edit-board" onClick={handleEditBoard}>
-            Edit Board
+      {appData.length < 1 && <div className="header-right-wrapper"></div>}
+      {appData.length > 0 && (
+        <div className="header-right-wrapper">
+          <h1>{selectedBoard}</h1>
+          <button
+            disabled={disabled}
+            className={`btn btn-add-new-task ${disabled ? "disabled" : ""}`}
+            onClick={handleAddTask}
+          >
+            + Add New Task
           </button>
-          <button className="btn-delete-board" onClick={handleDeleteBoard}>
-            Delete Board
+          <button className="btn-ellipsis" onClick={handleEllipsisButton}>
+            <img src={ellipsis} alt="vertical ellipsis" />
           </button>
+          <div className={`edit-board-menu ${showMenu ? "" : "hidden"}`}>
+            <button className="btn-edit-board" onClick={handleEditBoard}>
+              Edit Board
+            </button>
+            <button className="btn-delete-board" onClick={handleDeleteBoard}>
+              Delete Board
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

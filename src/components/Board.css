@@ -82,4 +82,8 @@
   .btn-new-column:hover {
     color: var(--purple);
   }
+
+  .btn-add-new-column:hover {
+    background-color: var(--purple-hover);
+  }
 }

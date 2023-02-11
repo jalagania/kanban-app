@@ -89,7 +89,7 @@ function BoardFormModal() {
                   value={column}
                   onChange={(event) => handleBoardColumns(event, index)}
                 />
-                <button onClick={() => handleColumnDelete(index)}>
+                <button type="button" onClick={() => handleColumnDelete(index)}>
                   <svg
                     width="15"
                     height="15"
@@ -107,10 +107,15 @@ function BoardFormModal() {
           {error && <p className="error-text">All fields are mandatory</p>}
         </div>
         <div className="board-form-buttons">
-          <button className="btn btn-add-form-column" onClick={handleAddColumn}>
+          <button
+            type="button"
+            className="btn btn-add-form-column"
+            onClick={handleAddColumn}
+          >
             + Add New Column
           </button>
           <button
+            type="submit"
             className="btn btn-form-create-board"
             onClick={handleFormSubmit}
           >

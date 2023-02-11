@@ -15,10 +15,12 @@ function DeleteModal() {
 
   function handleConfirmDelete() {
     if (deleteModal === "board") {
+      dispatch(deleteBoard(selectedBoard));
       let index = appData.findIndex((board) => board.name === selectedBoard);
       index = index === 0 ? 1 : 0;
-      dispatch(deleteBoard(selectedBoard));
-      dispatch(setSelectedBoard(appData[index].name));
+      if (appData.length > 1) {
+        dispatch(setSelectedBoard(appData[index].name));
+      }
     } else {
       dispatch(deleteTask(taskInfo));
     }

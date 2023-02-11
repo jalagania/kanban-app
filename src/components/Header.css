@@ -53,13 +53,14 @@
 }
 
 .btn-ellipsis {
-  margin-right: 3.2rem;
+  padding: 0 1rem;
+  margin-right: 2.2rem;
   cursor: pointer;
 }
 
 .edit-board-menu {
   width: 20rem;
-  padding: 1.6rem;
+  padding: 1.6rem 0.4rem;
   background-color: var(--white-grayD);
   border-radius: 0.8rem;
   box-shadow: 0 1rem 2rem rgba(54, 78, 126, 0.25);
@@ -70,7 +71,11 @@
 }
 
 .edit-board-menu button {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
   display: block;
+  text-align: left;
+  border-radius: 0.8rem;
 }
 
 .btn-edit-board {
@@ -83,12 +88,16 @@
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--red);
-  margin-top: 1.6rem;
+  margin-top: 0.6rem;
 }
 
 @media (hover: hover) {
   .btn-add-new-task:hover {
     background-color: var(--purple-hover);
+  }
+
+  .edit-board-menu button:hover {
+    background-color: var(--purple25);
   }
 }
 

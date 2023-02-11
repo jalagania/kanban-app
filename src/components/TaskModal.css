@@ -36,12 +36,13 @@
 }
 
 .task-modal-header button {
+  padding-left: 1rem;
   flex-shrink: 0;
 }
 
 .task-modal-buttons {
   width: 19rem;
-  padding: 1.6rem;
+  padding: 1.6rem 0.4rem;
   background-color: var(--white-grayD);
   box-shadow: 0 1rem 2rem rgba(54, 78, 126, 0.25);
   border-radius: 0.8rem;
@@ -53,7 +54,11 @@
 }
 
 .task-modal-buttons button {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
   display: block;
+  text-align: left;
+  border-radius: 0.8rem;
 }
 
 .btn-task-modal-edit {
@@ -66,7 +71,7 @@
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--red);
-  margin-top: 1.6rem;
+  margin-top: 0.6rem;
 }
 
 .task-modal-window h4 {
@@ -199,6 +204,10 @@
 }
 
 @media (hover: hover) {
+  .task-modal-buttons button:hover {
+    background-color: var(--purple25);
+  }
+
   .task-modal-subtask:hover {
     background-color: var(--purple25);
   }

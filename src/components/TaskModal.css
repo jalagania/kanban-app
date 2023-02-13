@@ -165,7 +165,7 @@
 
 .tm-status-menu-body {
   width: 100%;
-  padding: 1.6rem;
+  padding: 1.6rem 0;
   background-color: var(--white-grayD);
   box-shadow: 0 1rem 2rem rgba(54, 78, 126, 0.25);
   border-radius: 0.8rem;
@@ -204,14 +204,8 @@
 }
 
 @media (hover: hover) {
-  .task-modal-buttons button:hover {
-    background-color: var(--purple25);
-  }
-
-  .task-modal-subtask:hover {
-    background-color: var(--purple25);
-  }
-
+  .task-modal-buttons button:hover,
+  .task-modal-subtask:hover,
   .tm-status-menu-body button:hover {
     background-color: var(--purple25);
   }

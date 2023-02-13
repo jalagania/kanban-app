@@ -85,7 +85,8 @@ select {
 }
 
 input,
-button {
+button,
+textarea {
   background-color: transparent;
 }
 

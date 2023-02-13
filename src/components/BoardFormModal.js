@@ -15,7 +15,7 @@ function BoardFormModal() {
 
   const [boardName, setBoardName] = useState(editing ? selectedBoard : "");
   const [boardColumns, setBoardColumns] = useState(
-    editing ? board.columns : ["Todo", "Doing"]
+    editing ? board.columns : ["Todo", "Doing", "Done"]
   );
   const [error, setError] = useState(false);
 

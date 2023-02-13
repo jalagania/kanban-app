@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import deleteModalSlice from "../store/deleteModalSlice";
 import boardFormSlice from "../store/boardFormSlice";
+import taskFormSlice from "../store/taskFormSlice";
 
 function Header() {
   const dispatch = useDispatch();
@@ -14,11 +15,12 @@ function Header() {
   const { appData, selectedBoard } = useSelector((store) => store.data);
   const { setShowDeleteModal } = deleteModalSlice.actions;
   const { setShowBoardFormModal } = boardFormSlice.actions;
+  const { setShowTaskFormModal } = taskFormSlice.actions;
   const [showMenu, setShowMenu] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
   function handleAddTask() {
-    console.log("damn");
+    dispatch(setShowTaskFormModal([true, "add"]));
   }
 
   function handleEditBoard() {

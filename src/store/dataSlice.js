@@ -29,6 +29,25 @@ const dataSlice = createSlice({
       );
     },
 
+    addTask: (state, action) => {
+      const [task, taskBoard] = action.payload;
+      const index = state.appData.findIndex(
+        (board) => board.name === taskBoard
+      );
+      state.appData[index].tasks.push(task);
+    },
+
+    updateTask: (state, action) => {
+      const [task, taskInfo] = action.payload;
+      const boardIndex = state.appData.findIndex(
+        (board) => board.name === taskInfo.board
+      );
+      const taskndex = state.appData[boardIndex].tasks.findIndex(
+        (task) => task.title === taskInfo.title
+      );
+      state.appData[boardIndex].tasks[taskndex] = { ...task };
+    },
+
     deleteTask: (state, action) => {
       const task = action.payload;
       const index = state.appData.findIndex(

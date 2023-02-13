@@ -8,11 +8,13 @@ import { useEffect, useState } from "react";
 import taskModalSlice from "../store/taskModalSlice";
 import dataSlice from "../store/dataSlice";
 import deleteModalSlice from "../store/deleteModalSlice";
+import taskFormSlice from "../store/taskFormSlice";
 
 function TaskModal() {
   const dispatch = useDispatch();
   const { appData } = useSelector((store) => store.data);
   const { taskInfo } = useSelector((store) => store.taskModal);
+  const { setShowTaskFormModal } = taskFormSlice.actions;
   const { setSubtaskStatus, setTaskStatus } = dataSlice.actions;
   const { setShowDeleteModal } = deleteModalSlice.actions;
   const task = appData
@@ -29,7 +31,8 @@ function TaskModal() {
   }
 
   function handleEditTask() {
-    console.log("edit task");
+    dispatch(setShowTaskModal(false));
+    dispatch(setShowTaskFormModal([true, "edit"]));
   }
 
   function handleDeleteTask() {

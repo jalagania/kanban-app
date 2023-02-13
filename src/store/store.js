@@ -4,6 +4,7 @@ import sidebarSlice from "./sidebarSlice";
 import deleteModalSlice from "./deleteModalSlice";
 import taskModalSlice from "./taskModalSlice";
 import boardFormSlice from "./boardFormSlice";
+import taskFormSlice from "./taskFormSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     deleteModal: deleteModalSlice.reducer,
     taskModal: taskModalSlice.reducer,
     boardFormModal: boardFormSlice.reducer,
+    taskFormModal: taskFormSlice.reducer,
   },
 });

@@ -1,0 +1,222 @@
+.task-form-container,
+.task-form-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.task-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-form {
+  width: 48rem;
+  padding: 3.2rem;
+  background-color: var(--white-gray);
+  border-radius: 0.6rem;
+  z-index: 100;
+}
+
+.task-form-title {
+  color: var(--black-white);
+}
+
+.task-form span {
+  margin: 2rem 0 0.8rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--grayM-white);
+  display: block;
+}
+
+.task-form textarea {
+  height: 9rem;
+  resize: none;
+  line-height: 2rem;
+}
+
+.task-form input,
+.task-form textarea {
+  width: 100%;
+  padding: 1rem 1.6rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--black-white);
+  border-radius: 4px;
+  border: 1px solid rgba(130, 143, 163, 0.25);
+  outline: none;
+}
+
+.task-form input::placeholder,
+.task-form textarea::placeholder {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--black-white);
+  opacity: 0.25;
+}
+
+.task-form input:focus,
+.task-form textarea:focus {
+  border: 1px solid var(--purple);
+}
+
+.task-form-subtasks {
+  max-height: 9rem;
+  overflow-y: auto;
+}
+
+.task-form-subtasks::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+.task-form-subtasks::-webkit-scrollbar-thumb {
+  background-color: var(--purple25);
+  border-radius: 50rem;
+}
+
+.task-form-subtasks::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.task-form-subtask-box {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.task-form-subtask-box:not(:last-child) {
+  margin-bottom: 1.2rem;
+}
+
+.task-form-subtask-box svg {
+  fill: #828fa3;
+  margin-right: 0.5rem;
+}
+
+.task-form .error-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--red);
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+.btn-add-form-subtask,
+.btn-form-create-task {
+  width: 100%;
+  padding: 1.2rem 0;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.btn-add-form-subtask {
+  margin-top: 1.2rem;
+  color: var(--purple);
+  background-color: var(--purple10-white);
+}
+
+.task-form-status-menu {
+  position: relative;
+}
+
+.task-form-status-menu h4 {
+  margin: 2rem 0 0.8rem 0;
+  color: var(--grayM-white);
+}
+
+.btn-tf-status-menu-head {
+  width: 100%;
+  padding: 0.8rem 1.6rem;
+  color: var(--black-white);
+  font-size: 1.3rem;
+  font-weight: 500;
+  background-color: var(--white-gray);
+  border: 1px solid rgba(130, 143, 163, 0.25);
+  border-radius: 0.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-tf-status-menu-head.active {
+  border: 1px solid var(--purple);
+}
+
+.btn-tf-status-menu-head img {
+  transition: all 0.2s;
+}
+
+.tf-status-menu-body {
+  width: 100%;
+  padding: 1.6rem 0;
+  background-color: var(--white-grayD);
+  box-shadow: 0 1rem 2rem rgba(54, 78, 126, 0.25);
+  border-radius: 0.8rem;
+
+  position: absolute;
+  top: -15.5rem;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.tf-status-menu-body.menu-down {
+  top: 4.5rem;
+}
+
+.tf-status-menu-body button {
+  width: 100%;
+  padding: 0.8rem 1.6rem;
+  color: var(--black-white);
+  font-size: 1.3rem;
+  font-weight: 500;
+  border-radius: 0.4rem;
+  display: flex;
+}
+
+.btn-form-create-task {
+  margin-top: 2.4rem;
+  color: white;
+  background-color: var(--purple);
+}
+
+.task-form-bg {
+  background-color: black;
+  opacity: 0.6;
+}
+
+@media (hover: hover) {
+  .task-form-subtask-box button:hover svg {
+    fill: var(--red);
+  }
+
+  .btn-add-form-subtask:hover {
+    background-color: var(--purple25-white);
+  }
+
+  .btn-form-create-task:hover {
+    background-color: var(--purple-hover);
+  }
+
+  .tf-status-menu-body button:hover {
+    background-color: var(--purple25);
+  }
+}
+
+.error-border {
+  border: 1px solid var(--red);
+}
+
+.hidden {
+  display: none;
+}

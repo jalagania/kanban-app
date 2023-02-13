@@ -37,7 +37,7 @@ function Sidebar() {
   }
 
   return (
-    <div className="sidebar-container">
+    <div className={`sidebar-container ${sidebarHidden ? "no-border" : ""}`}>
       <div className={`sidebar-body ${sidebarHidden ? "hidden" : ""}`}>
         <div className="boards-container">
           <h4 className="all-boards-text">All boards ({appData.length})</h4>

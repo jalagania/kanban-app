@@ -23,7 +23,7 @@ function TaskFormModal() {
     : {
         title: "",
         description: "",
-        status: "Todo",
+        status: "",
         subtasks: [{ title: "", isCompleted: false }],
       };
   const [taskTitle, setTaskTitle] = useState(task.title);
@@ -170,7 +170,6 @@ function TaskFormModal() {
               );
             })}
           </div>
-          {error && <p className="error-text">All fields are mandatory</p>}
           <button
             type="button"
             className="btn btn-add-form-subtask"
@@ -211,6 +210,7 @@ function TaskFormModal() {
               })}
           </div>
         </div>
+        {error && <p className="error-text">All fields are mandatory</p>}
         <button
           type="submit"
           className="btn btn-form-create-task"

@@ -15,7 +15,8 @@
 }
 
 .task-form {
-  width: 48rem;
+  max-width: 48rem;
+  width: 100%;
   padding: 3.2rem;
   background-color: var(--white-gray);
   border-radius: 0.6rem;
@@ -103,7 +104,7 @@
   font-weight: 500;
   color: var(--red);
   text-align: center;
-  margin-top: 1.2rem;
+  margin: 1.2rem 0 -1rem 0;
 }
 
 .btn-add-form-subtask,
@@ -171,7 +172,7 @@
 }
 
 .tf-status-menu-body.menu-down {
-  top: 4.5rem;
+  top: 6.5rem;
 }
 
 .tf-status-menu-body button {

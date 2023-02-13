@@ -4,7 +4,7 @@
   letter-spacing: 2.4px;
 }
 
-.column-name .ball {
+.column-name-ball {
   width: 1.5rem;
   height: 1.5rem;
   display: inline-block;
@@ -13,19 +13,16 @@
   margin-right: 1.2rem;
 }
 
-.ball.todo,
-.ball.now {
+.column-container:nth-child(3n + 1) .column-name-ball {
+  background-color: #67e2ae;
+}
+
+.column-container:nth-child(3n + 2) .column-name-ball {
   background-color: #49c4e5;
 }
 
-.ball.doing,
-.ball.next {
+.column-container:nth-child(3n) .column-name-ball {
   background-color: #8471f2;
-}
-
-.ball.done,
-.ball.later {
-  background-color: #67e2ae;
 }
 
 .tasks-container {

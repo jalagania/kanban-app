@@ -15,7 +15,8 @@
 }
 
 .board-form {
-  width: 48rem;
+  max-width: 48rem;
+  width: 100%;
   padding: 3.2rem;
   background-color: var(--white-gray);
   border-radius: 0.6rem;

@@ -19,7 +19,7 @@ function BoardColumn(props) {
   return (
     <div className="column-container">
       <h4 className="column-name">
-        <span className={`ball ${props.name.toLowerCase()}`}></span>
+        <span className="column-name-ball"></span>
         <span>{props.name} </span>
         <span>
           ({props.tasks.filter((task) => task.status === props.name).length})

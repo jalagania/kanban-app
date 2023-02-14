@@ -14,7 +14,8 @@ function Sidebar() {
   const { sidebarHidden, mobileSidebarHidden, darkMode } = useSelector(
     (store) => store.sidebar
   );
-  const { setDarkMode, setSidebarHidden } = sidebarSlice.actions;
+  const { setDarkMode, setSidebarHidden, setMobileSidebarHidden } =
+    sidebarSlice.actions;
   const { appData } = useSelector((store) => store.data);
   const { selectedBoard } = useSelector((store) => store.data);
   const { setSelectedBoard } = dataSlice.actions;
@@ -25,6 +26,9 @@ function Sidebar() {
 
   function handleCreateNewBoard() {
     dispatch(setShowBoardFormModal([true, "add"]));
+    if (mobile) {
+      dispatch(setMobileSidebarHidden(true));
+    }
   }
 
   function handleThemeChange() {

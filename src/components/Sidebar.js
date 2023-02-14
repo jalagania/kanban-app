@@ -76,9 +76,9 @@ function Sidebar() {
             </button>
           </div>
         </div>
-        <div className="theme-box" onClick={handleThemeChange}>
+        <div className="theme-box">
           <img src={sun} alt="sun icon" className="icon-sun" />
-          <div className="theme-switcher">
+          <div className="theme-switcher" onClick={handleThemeChange}>
             <p className={`theme-switcher-ball ${darkMode ? "ml" : ""}`}>
               &bull;
             </p>

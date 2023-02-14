@@ -5,7 +5,7 @@ const sidebarSlice = createSlice({
   initialState: {
     sidebarHidden: false,
     mobileSidebarHidden: true,
-    darkMode: false,
+    darkMode: window.matchMedia("(prefers-color-scheme: dark)").matches,
   },
   reducers: {
     setSidebarHidden: (state, action) => {

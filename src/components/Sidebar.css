@@ -6,6 +6,7 @@
 
 .sidebar-body {
   height: calc(100vh - 91px);
+  background-color: var(--white-gray);
   display: flex;
   flex-direction: column;
 }
@@ -144,5 +145,34 @@
   .btn-hide-sidebar:hover img {
     filter: brightness(0) saturate(100%) invert(35%) sepia(63%) saturate(771%)
       hue-rotate(206deg) brightness(96%) contrast(83%);
+  }
+}
+
+@media (max-width: 425px) {
+  .sidebar-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .sidebar-body {
+    width: fit-content;
+    height: auto;
+    margin: 9rem auto;
+    border-radius: 0.8rem;
+    box-shadow: 0 1rem 2rem rgba(54, 78, 126, 0.25);
+    gap: 1.6rem;
+  }
+
+  .theme-box {
+    margin: 1.6rem;
+  }
+
+  .btn-hide-sidebar {
+    display: none;
   }
 }

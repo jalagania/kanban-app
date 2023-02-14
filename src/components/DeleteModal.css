@@ -17,6 +17,7 @@
 .delete-modal-window {
   max-width: 48rem;
   width: 100%;
+  margin: 0 1.6rem;
   padding: 3.2rem 3.2rem 4rem 3.2rem;
   background-color: var(--white-gray);
   border-radius: 0.6rem;
@@ -69,5 +70,16 @@
 
   .btn-cancel-delete:hover {
     background-color: var(--purple25-white);
+  }
+}
+
+@media (max-width: 425px) {
+  .delete-modal-window {
+    padding: 2.4rem;
+  }
+
+  .delete-modal-buttons {
+    flex-direction: column;
+    gap: 1.6rem;
   }
 }

@@ -56,6 +56,7 @@
 
 .empty-board-box {
   height: 100%;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,5 +86,26 @@
 
   .btn-add-new-column:hover {
     background-color: var(--purple-hover);
+  }
+}
+
+@media (max-width: 768px) {
+  .empty-board-box {
+    padding: 0 5rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .board-container {
+    height: calc(100vh - 80px);
+  }
+
+  .board-columns-box::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .board-columns-box::-webkit-scrollbar-thumb {
+    background-color: transparent;
   }
 }

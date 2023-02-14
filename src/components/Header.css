@@ -37,9 +37,19 @@
   gap: 2.4rem;
 }
 
-.header-container h1 {
+.header-heading-box {
   margin-left: 3.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.header-container h1 {
   color: var(--black-white);
+}
+
+.arrow-mobile {
+  display: none;
 }
 
 .btn-add-new-task {
@@ -107,4 +117,56 @@
 
 .disabled:active {
   scale: 1;
+}
+
+@media (max-width: 425px) {
+  .header-container {
+    height: 8rem;
+    z-index: 5;
+  }
+
+  .logo-box {
+    padding: 1.6rem;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logo-width {
+    width: auto;
+  }
+
+  .logo-mobile {
+    display: block;
+  }
+
+  .header-right-wrapper {
+    padding: 1.6rem 0;
+    border: none;
+    gap: 1.6rem;
+  }
+
+  .arrow-mobile {
+    display: block;
+    transition: all 0.2s;
+  }
+
+  .header-heading-box {
+    margin: 0;
+  }
+
+  .btn-add-new-task {
+    padding: 0.5rem 2.5rem 1rem 2.5rem;
+    font-size: 2.5rem;
+  }
+
+  .btn-ellipsis {
+    margin-right: 1rem;
+  }
+
+  .edit-board-menu {
+    width: 15rem;
+    right: 2rem;
+  }
 }

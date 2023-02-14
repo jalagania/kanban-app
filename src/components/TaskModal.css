@@ -17,6 +17,7 @@
 .task-modal-window {
   width: 48rem;
   padding: 3.2rem;
+  margin: 0 1.6rem;
   background-color: var(--white-gray);
   border-radius: 0.6rem;
   z-index: 100;
@@ -208,5 +209,16 @@
   .task-modal-subtask:hover,
   .tm-status-menu-body button:hover {
     background-color: var(--purple25);
+  }
+}
+
+@media (max-width: 425px) {
+  .task-modal-window {
+    padding: 2.4rem;
+  }
+
+  .task-modal-buttons {
+    width: 15rem;
+    right: -2rem;
   }
 }

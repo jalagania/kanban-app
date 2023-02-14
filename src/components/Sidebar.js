@@ -11,12 +11,15 @@ import boardFormSlice from "../store/boardFormSlice";
 
 function Sidebar() {
   const dispatch = useDispatch();
-  const { sidebarHidden, darkMode } = useSelector((store) => store.sidebar);
+  const { sidebarHidden, mobileSidebarHidden, darkMode } = useSelector(
+    (store) => store.sidebar
+  );
   const { setDarkMode, setSidebarHidden } = sidebarSlice.actions;
   const { appData } = useSelector((store) => store.data);
   const { selectedBoard } = useSelector((store) => store.data);
   const { setSelectedBoard } = dataSlice.actions;
   const { setShowBoardFormModal } = boardFormSlice.actions;
+  const mobile = document.body.clientWidth <= 425;
 
   document.body.className = darkMode ? "dark-mode" : "";
 
@@ -37,7 +40,11 @@ function Sidebar() {
   }
 
   return (
-    <div className={`sidebar-container ${sidebarHidden ? "no-border" : ""}`}>
+    <div
+      className={`sidebar-container ${sidebarHidden ? "no-border" : ""} ${
+        mobile && mobileSidebarHidden ? "hidden" : ""
+      }`}
+    >
       <div className={`sidebar-body ${sidebarHidden ? "hidden" : ""}`}>
         <div className="boards-container">
           <h4 className="all-boards-text">All boards ({appData.length})</h4>

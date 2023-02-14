@@ -18,6 +18,7 @@
   max-width: 48rem;
   width: 100%;
   padding: 3.2rem;
+  margin: 0 1.6rem;
   background-color: var(--white-gray);
   border-radius: 0.6rem;
   z-index: 100;
@@ -122,4 +123,10 @@
 
 .error-border {
   border: 1px solid var(--red);
+}
+
+@media (max-width: 425px) {
+  .board-form {
+    padding: 2.4rem;
+  }
 }

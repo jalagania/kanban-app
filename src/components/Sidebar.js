@@ -5,6 +5,7 @@ import moon from "../assets/icon-dark-theme.svg";
 import hideSidebar from "../assets/icon-hide-sidebar.svg";
 import showSidebar from "../assets/icon-show-sidebar.svg";
 import { useDispatch, useSelector } from "react-redux";
+import Attribution from "./Attribution";
 import dataSlice from "../store/dataSlice";
 import sidebarSlice from "../store/sidebarSlice";
 import boardFormSlice from "../store/boardFormSlice";
@@ -80,6 +81,7 @@ function Sidebar() {
             </button>
           </div>
         </div>
+        <Attribution />
         <div className="theme-box">
           <img src={sun} alt="sun icon" className="icon-sun" />
           <div className="theme-switcher" onClick={handleThemeChange}>

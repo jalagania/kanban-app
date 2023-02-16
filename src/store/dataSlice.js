@@ -13,7 +13,10 @@ const dataSlice = createSlice({
     },
 
     addBoard: (state, action) => {
-      state.appData.push(action.payload);
+      const array = state.appData.map((board) => board.name);
+      if (!array.includes(action.payload.name)) {
+        state.appData.push(action.payload);
+      }
     },
 
     updateBoard: (state, action) => {
@@ -34,7 +37,10 @@ const dataSlice = createSlice({
       const index = state.appData.findIndex(
         (board) => board.name === taskBoard
       );
-      state.appData[index].tasks.push(task);
+      const tasksArray = state.appData[index].tasks.map((task) => task.title);
+      if (!tasksArray.includes(task.title)) {
+        state.appData[index].tasks.push(task);
+      }
     },
 
     updateTask: (state, action) => {
@@ -42,10 +48,15 @@ const dataSlice = createSlice({
       const boardIndex = state.appData.findIndex(
         (board) => board.name === taskInfo.board
       );
-      const taskndex = state.appData[boardIndex].tasks.findIndex(
+      const taskIndex = state.appData[boardIndex].tasks.findIndex(
         (task) => task.title === taskInfo.title
       );
-      state.appData[boardIndex].tasks[taskndex] = { ...task };
+      const tasksArray = state.appData[boardIndex].tasks.map(
+        (task) => task.title
+      );
+      if (!tasksArray.includes(task.title)) {
+        state.appData[boardIndex].tasks[taskIndex] = { ...task };
+      }
     },
 
     deleteTask: (state, action) => {

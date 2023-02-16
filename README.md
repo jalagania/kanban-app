@@ -10,5 +10,3 @@ HTML5
 CSS (Flexbox, CSS Grid, CSS custom properties)
 React/Redux Toolkit
 JSON
-
-- **Bonus**: Allow users to drag and drop tasks to change their status and re-order them in a column

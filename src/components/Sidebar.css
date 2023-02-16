@@ -146,6 +146,16 @@
     filter: brightness(0) saturate(100%) invert(35%) sepia(63%) saturate(771%)
       hue-rotate(206deg) brightness(96%) contrast(83%);
   }
+
+  .btn-board.selected:hover {
+    color: white;
+    background-color: var(--purple);
+    cursor: default;
+  }
+
+  .btn-board.selected:hover img {
+    filter: brightness(3);
+  }
 }
 
 @media (max-width: 425px) {

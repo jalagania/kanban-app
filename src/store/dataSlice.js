@@ -51,12 +51,7 @@ const dataSlice = createSlice({
       const taskIndex = state.appData[boardIndex].tasks.findIndex(
         (task) => task.title === taskInfo.title
       );
-      const tasksArray = state.appData[boardIndex].tasks.map(
-        (task) => task.title
-      );
-      if (!tasksArray.includes(task.title)) {
-        state.appData[boardIndex].tasks[taskIndex] = { ...task };
-      }
+      state.appData[boardIndex].tasks[taskIndex] = { ...task };
     },
 
     deleteTask: (state, action) => {

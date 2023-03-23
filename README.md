@@ -1,10 +1,10 @@
 # Frontend Mentor - Kanban task management web app solution
 
-# Links
+### Links
 
 Live Site URL: https://kanban-app-beka.netlify.app
 
-# Built with
+### Built with
 
 - HTML5
 - CSS (Flexbox, CSS Grid, CSS custom properties)
